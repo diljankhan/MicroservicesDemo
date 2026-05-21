@@ -130,7 +130,8 @@ MicroservicesDemo/
 
     Because these apps must talk to each other across the network, you need them all running at the exact same time when you hit "Play" in Visual Studio.
 
-Right-click the top-level solution node (MicroservicesDemo) and select Properties.
+Right-click the top-level solution node (MicroservicesDemo) and select Properties.</br>
+<img width="1008" height="681" alt="image" src="https://github.com/user-attachments/assets/fbee7a8a-6cbc-46fc-b25a-acb2f6ed3991" /></br>
 
 On the left menu, click Startup Project.
 
