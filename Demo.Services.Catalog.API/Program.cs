@@ -1,4 +1,11 @@
+using Demo.Services.Catalog.API.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<CatalogDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CatalogConnection")));
 
 // Add services to the container.
 
