@@ -109,7 +109,7 @@ Target the same .NET version. Let's assume this service runs on Port 5003.
 
 The Golden Rule of Microservice Solutions
 Look closely at your Solution Explorer now:
-
+<img width="568" height="288" alt="image" src="https://github.com/user-attachments/assets/f757cf89-1e3c-4088-8c07-72cd252cdebf" /></br>
 MicroservicesDemo/
 │
 ├── 📁 01.CustomersService/
@@ -120,6 +120,9 @@ MicroservicesDemo/
 │
 └── 📁 03.OrdersService/
     └── 🚀 Demo.Services.Orders.API
+
+</br>  
+
 
 
 
@@ -144,6 +147,9 @@ Demo.Services.Orders.API -> Start
 Click Apply and OK.
 
 Now, when you click the Start button in Visual Studio, three console windows and three separate browser tabs (Swagger pages) will launch simultaneously.
+
+
+
 
 
 
