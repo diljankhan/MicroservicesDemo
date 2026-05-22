@@ -149,6 +149,7 @@ Click Apply and OK.
 
 Now, when you click the Start button in Visual Studio, three console windows and three separate browser tabs (Swagger pages) will launch simultaneously.
 
+<img width="977" height="146" alt="image" src="https://github.com/user-attachments/assets/272cf4f0-c45e-4688-8b48-ae5f099f7a65" />
 
 
 
