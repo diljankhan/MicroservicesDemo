@@ -11,16 +11,14 @@ namespace Demo.Services.Orders.API.Controllers
     {
         private readonly OrdersDbContext _context;
         private readonly CustomerHttpService _customerService;
-
-        //done using rabbitmq
-        //private readonly CatalogHttpService _catalogService;
-        //
-        public OrdersController(OrdersDbContext context,CustomerHttpService customerService)//CatalogHttpService catalogService)
+        private readonly CatalogHttpService _catalogService;
+        
+        public OrdersController(OrdersDbContext context,CustomerHttpService customerService,CatalogHttpService catalogService)
 
         {
             _context = context;
             _customerService = customerService;
-            //_catalogService = catalogService;
+            _catalogService = catalogService;
         }
 
         [HttpPost]
@@ -34,26 +32,18 @@ namespace Demo.Services.Orders.API.Controllers
             }
 
             // 2. Cross-network validation: Fetch pricing information from Catalog API
-           /* decimal? productPrice = await _catalogService.GetProductPriceAsync(productId);
+            decimal? productPrice = await _catalogService.GetProductPriceAsync(productId);
             if (productPrice == null)
             {
                 return BadRequest($"Validation Failed: Product with ID {productId} does not exist inside Catalog DB.");
-            }*/
-
-            // Look up the product price directly from your local synced data table
-            var localProductRef = await _context.ProductReferences.FindAsync(productId);
-            if (localProductRef == null)
-            {
-                return BadRequest($"Validation Failed: Product with ID {productId} is not available in the local Orders cache.");
-            }
+            }            
 
             // 3. Execution: If both evaluations pass, save the data to Orders DB
             var order = new Order
             {
                 CustomerId = customerId,
                 ProductId = productId,
-                //TotalAmount = productPrice.Value,
-                TotalAmount = localProductRef.Price, // Fetched from the local table!
+                TotalAmount = productPrice.Value,                
                 OrderDate = DateTime.UtcNow
             };
 

@@ -25,6 +25,7 @@ builder.Services.AddHttpClient<CatalogHttpService>(client =>
 //Register the Background Worker --tell the Web API engine to run this background listener
 //worker immediately on startup
 builder.Services.AddHostedService<RabbitMQProductConsumer>();
+builder.Services.AddHostedService<RabbitMQCustomerConsumer>();
 
 
 builder.Services.AddControllers();
