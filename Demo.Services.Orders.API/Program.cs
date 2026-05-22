@@ -1,4 +1,5 @@
 using Demo.Services.Orders.API.Data;
+using Demo.Services.Orders.API.Messaging;
 using Demo.Services.Orders.API.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,12 @@ builder.Services.AddHttpClient<CatalogHttpService>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7088"); // Catalog API port
 });
+
+
+//Register the Background Worker --tell the Web API engine to run this background listener
+//worker immediately on startup
+builder.Services.AddHostedService<RabbitMQProductConsumer>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
