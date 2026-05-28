@@ -65,19 +65,14 @@ GO
 
 </br>
 
-### Step 1: Create the Microservices Solution Structure</br>
+## Step 1: Create the Microservices Solution Structure
 In a production microservices environment, each microservice usually gets its own completely separate Git repository and Visual Studio Solution. However, while we are learning and developing locally, it is easiest to keep them inside one solution, but grouped cleanly.</br>
-
 Open Visual Studio 2022 and perform the following structural steps:</br>
-
 Create a new Blank Solution and name it MicroservicesDemo.</br>
 
 Inside Solution Explorer, right-click the solution and create three Solution Folders:</br>
-
 01.CustomersService
-
 02.CatalogService
-
 03.OrdersService
 
 Your Visual Studio Solution Explorer tree will look like this empty skeleton:</br>
@@ -89,32 +84,25 @@ MicroservicesDemo/ (Solution)
 ├── 📁 02.CatalogService/
 └── 📁 03.OrdersService/
 ```
-
 </br>
 
-### Step 2: Add the Projects</br>
-
+### Step 2: Add the Projects
 Now, let's create the independent Web API applications. Unlike the modular monolith where we had class libraries, every microservice is an independent, runnable ASP.NET Core Web API project with its own port, its own Program.cs, and its own configurations.</br>
-
-#####1. Create the Customers Microservice</br>
+### 1. Create the Customers Microservice
 Right-click on the 01.CustomersService solution folder -> Add -> New Project.</br>
-
 Select ASP.NET Core Web API.</br>
-
 Name the project: Demo.Services.Customers.API.</br>
-
 Choose .NET 8.0 or .NET 9.0.</br>
-
 Uncheck "Configure for HTTPS" (keep it simple for local development for now) or leave it checked if you prefer, but ensure you know its port. Let's assume this service runs on Port 5001.</br>
 
-2. Create the Catalog Microservice</br>
+### 2. Create the Catalog Microservice
 Right-click on the 02.CatalogService solution folder -> Add -> New Project.</br>
 
 Select ASP.NET Core Web API.</br>
 Name the project: Demo.Services.Catalog.API.</br>
 Target the same .NET version. Let's assume this service runs on Port 5002.</br>
 
-<h3>3. Create the Orders Microservice</h3></br>
+### 3. Create the Orders Microservice
 Right-click on the 03.OrdersService solution folder -> Add -> New Project.</br>
 Select ASP.NET Core Web API.</br>
 Name the project: Demo.Services.Orders.API.</br>
