@@ -1,11 +1,11 @@
-<h1>Microservices Demo</h1>
+# Microservices Demo
 
 The New Multi-Database Design
 Instead of one database with three schemas, we will provision three independent databases. Notice that we maintain logical links (like CustomerId and ProductId), but we completely eliminate any cross-database dependencies or assumptions. </br>
 
 
 
-1. Customers Microservice Database </br>
+### 1. Customers Microservice Database </br>
 This database only cares about user/customer identities. </br>
 <img width="438" height="345" alt="image" src="https://github.com/user-attachments/assets/379ad44c-5434-4861-bb17-16d85bf63982" /> </br>
 
@@ -25,7 +25,7 @@ GO
 
 </br>
  
-2. Catalog Microservice Database </br>
+### 2. Catalog Microservice Database </br>
 This database holds product descriptions and active pricing data.
 </br>
 
@@ -44,7 +44,7 @@ GO
 ```
 
 </br>
-3. Orders Microservice Database</br>
+### 3. Orders Microservice Database</br>
 This is where the shift happens. In an isolated microservice database, this table cannot have foreign keys pointing to the other databases. It stores the CustomerId and ProductId purely as raw integer values (logical keys).</br>
 
 ```
@@ -65,7 +65,7 @@ GO
 
 </br>
 
-Step 1: Create the Microservices Solution Structure</br>
+### Step 1: Create the Microservices Solution Structure</br>
 In a production microservices environment, each microservice usually gets its own completely separate Git repository and Visual Studio Solution. However, while we are learning and developing locally, it is easiest to keep them inside one solution, but grouped cleanly.</br>
 
 Open Visual Studio 2022 and perform the following structural steps:</br>
@@ -92,11 +92,11 @@ MicroservicesDemo/ (Solution)
 
 </br>
 
-Step 2: Add the Projects</br>
+### Step 2: Add the Projects</br>
 
 Now, let's create the independent Web API applications. Unlike the modular monolith where we had class libraries, every microservice is an independent, runnable ASP.NET Core Web API project with its own port, its own Program.cs, and its own configurations.</br>
 
-1. Create the Customers Microservice</br>
+#####1. Create the Customers Microservice</br>
 Right-click on the 01.CustomersService solution folder -> Add -> New Project.</br>
 
 Select ASP.NET Core Web API.</br>
@@ -160,8 +160,11 @@ Now, when you click the Start button in Visual Studio, three console windows and
 <img width="977" height="146" alt="image" src="https://github.com/user-attachments/assets/272cf4f0-c45e-4688-8b48-ae5f099f7a65" />
 
 
+<img width="938" height="527" alt="image" src="https://github.com/user-attachments/assets/bf3e58f2-39e5-42cc-9874-fbce0b99b1f5" /> 
 
+<img width="717" height="447" alt="image" src="https://github.com/user-attachments/assets/4452d151-b838-48ef-a850-bdc6b9974629" />
 
+<img width="1197" height="410" alt="image" src="https://github.com/user-attachments/assets/d567b0ea-c76f-471f-8315-0119f73f1eaf" />
 
 
 
