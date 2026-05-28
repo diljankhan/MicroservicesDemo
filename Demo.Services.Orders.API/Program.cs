@@ -21,12 +21,11 @@ builder.Services.AddHttpClient<CatalogHttpService>(client =>
     client.BaseAddress = new Uri("https://localhost:7088"); // Catalog API port
 });
 
-
 //Register the Background Worker --tell the Web API engine to run this background listener
 //worker immediately on startup
 builder.Services.AddHostedService<RabbitMQProductConsumer>();
 builder.Services.AddHostedService<RabbitMQCustomerConsumer>();
-
+builder.Services.AddHostedService<RabbitMQProductUpdateConsumer>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

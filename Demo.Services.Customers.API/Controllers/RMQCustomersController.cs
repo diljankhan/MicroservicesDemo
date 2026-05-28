@@ -40,7 +40,14 @@ namespace Demo.Services.Customers.API.Controllers
 
         private async Task PublishCustomerCreatedEventAsync(int id)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            //var factory = new ConnectionFactory() { HostName = "localhost" };
+            //change RabbitMQ password. not default guest and guest
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                UserName = "guest",             // Or your custom user if you changed the username too
+                Password = "DKM82@rabbitmq" // <-- Put your exact new password here
+            };
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 

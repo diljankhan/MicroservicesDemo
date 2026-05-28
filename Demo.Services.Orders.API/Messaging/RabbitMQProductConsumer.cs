@@ -21,7 +21,16 @@ namespace Demo.Services.Orders.API.Messaging
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            //var factory = new ConnectionFactory() { HostName = "localhost" };
+
+            //change RabbitMQ password. not default guest and guest
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                UserName = "guest",             // Or your custom user if you changed the username too
+                Password = "DKM82@rabbitmq" // <-- Put your exact new password here
+            };
+
             _connection = await factory.CreateConnectionAsync(stoppingToken);
             _channel = await _connection.CreateChannelAsync(cancellationToken: stoppingToken);
 
